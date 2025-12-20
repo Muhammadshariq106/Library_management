@@ -95,20 +95,24 @@ menu = st.sidebar.radio(
 if menu == "Admin":
 
     # ------------------ LOGIN PAGE ------------------
+    if "admin_logged_in" not in st.session_state:
+    st.session_state.admin_logged_in = False
+
     if not st.session_state.admin_logged_in:
-        st.subheader("🔐 Admin Login")
+    st.subheader("🔐 Admin Login")
 
-        username = st.text_input("Username")
-        password = st.text_input("Password", type="password")
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
 
-        if st.button("Login"):
-            if username == "admin" and password == "1234":
-                st.session_state.admin_logged_in = True
-                st.success("Login Successful")
-                st.rerun()
-            else:
-                st.error("Invalid Credentials")
-
+     if st.button("Login"):
+        if username == "admin" and password == "1234":
+            st.session_state.admin_logged_in = True
+            st.success("Login Successful")
+            st.rerun()
+        else:
+            st.error("Invalid Credentials")
+else:
+    st.success("Welcome Admin!")
     # ------------------ ADMIN DASHBOARD PAGE ------------------
     else:
         st.subheader("🛠️ Admin Dashboard")
