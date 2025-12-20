@@ -96,8 +96,8 @@ if menu == "Admin":
     
 
     # ------------------ LOGIN PAGE ------------------
-    if "admin_logged_in" not in st.session_state:
-    st.session_state.admin_logged_in = False
+    if "admin_logged_in" not in st.session_state:\
+        st.session_state.admin_logged_in = False
 
 if not st.session_state.admin_logged_in:
     st.subheader("🔐 Admin Login")
