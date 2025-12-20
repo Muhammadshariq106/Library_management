@@ -113,10 +113,7 @@ if not st.session_state.admin_logged_in:
         else:
             st.error("Invalid Credentials")
 else:
-    st.success("Welcome Admin!")
-    # ------------------ ADMIN DASHBOARD PAGE ------------------
-    else:
-        st.subheader("🛠️ Admin Dashboard")
+    st.subheader("🛠️ Admin Dashboard")
 
         col1, col2 = st.columns(2)
 
@@ -147,6 +144,9 @@ else:
                 st.session_state.admin_logged_in = False
                 st.rerun()
 
+    # ------------------ ADMIN DASHBOARD PAGE ------------------
+    
+        
 # ------------------ SEARCH ------------------
 elif menu == "Search Books":
     st.subheader("🔍 Search Books")
