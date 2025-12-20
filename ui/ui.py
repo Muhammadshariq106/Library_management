@@ -162,7 +162,7 @@ elif menu == "Search Books":
 elif menu == "Borrow Book":
     st.subheader("📥 Borrow Book")
     user = st.text_input("Your Name")
-    book_id = st.text_input("Book ID")
+    book_id = st.text_input("Book ID", key="add_book_id")
 
     if st.button("Borrow"):
         result = library.borrow_book(user, book_id)
