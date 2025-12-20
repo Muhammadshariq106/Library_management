@@ -175,7 +175,7 @@ elif menu == "Borrow Book":
 elif menu == "Return Book":
     st.subheader("📤 Return Book")
     user = st.text_input("Your Name")
-    book_id = st.text_input("Book ID")
+    book_id = st.text_input("Book ID", key="book_id")
 
     if st.button("Return"):
         fine = library.return_book(user, book_id)
