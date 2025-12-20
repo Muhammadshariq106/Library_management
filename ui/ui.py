@@ -137,9 +137,9 @@ else:
         st.write(f"📘 Total Books: {len(library.books)}")
         st.write(f"📄 Borrowed Books: {len(library.borrow_records)}")
 
-            if st.button("🚪 Logout"):
-                st.session_state.admin_logged_in = False
-                st.rerun()
+if st.button("🚪 Logout"):
+    st.session_state.admin_logged_in = False
+    st.rerun()
 
     # ------------------ ADMIN DASHBOARD PAGE ------------------
     
