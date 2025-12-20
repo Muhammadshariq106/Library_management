@@ -114,31 +114,28 @@ if not st.session_state.admin_logged_in:
             st.error("Invalid Credentials")
 else:
     st.subheader("🛠️ Admin Dashboard")
-
-        col1, col2 = st.columns(2)
-
-        with col1:
-            st.markdown("### ➕ Add Book")
-            title = st.text_input("Title")
-            author = st.text_input("Author")
-            book_id = st.text_input("Book ID")
-            category = st.text_input("Category")
-            copies = st.number_input("Total Copies", min_value=1)
-
-            if st.button("Add Book"):
-                if not title or not author or not book_id:
-                    st.error("Please fill all required fields")
-                elif book_id in library.books:
-                    st.error("Book ID already exists")
-                else:
-                    book = Book(title, author, book_id, category, copies)
-                    library.add_book(book)
-                    st.success("Book Added Successfully")
-
-        with col2:
-            st.markdown("### 📚 Library Stats")
-            st.write(f"📘 Total Books: {len(library.books)}")
-            st.write(f"📄 Borrowed Books: {len(library.borrow_records)}")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("### ➕ Add Book")
+        title = st.text_input("Title")
+        author = st.text_input("Author")
+        book_id = st.text_input("Book ID")
+        category = st.text_input("Category")
+        copies = st.number_input("Total Copies", min_value=1)
+        if st.button("Add Book"):
+            if not title or not author or not book_id:
+                st.error("Please fill all required fields")
+            elif book_id in library.books:
+                st.error("Book ID already exists")
+            else:
+                book = Book(title, author, book_id, category, copies)
+                library.add_book(book)
+                st.success("Book Added Successfully")
+    
+    with col2:
+        st.markdown("### 📚 Library Stats")
+        st.write(f"📘 Total Books: {len(library.books)}")
+        st.write(f"📄 Borrowed Books: {len(library.borrow_records)}")
 
             if st.button("🚪 Logout"):
                 st.session_state.admin_logged_in = False
